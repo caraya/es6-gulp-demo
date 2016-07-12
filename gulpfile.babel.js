@@ -34,7 +34,16 @@ const paths = {
 
 gulp.task('generate-service-worker', (callback) => {
   swPrecache.write(path.join(paths.src, 'service-worker.js'), {
-    staticFileGlobs: [paths.src + '/**/*.{js,html,css,png,jpg,gif}'],
+    staticFileGlobs: [
+      // paths.src + '/**/*.{js,html,css,png,jpg,gif}',
+      // paths.src + '/**/*.{js,html,css,png,jpg,gif}',
+      // paths.src + '/**/*.{js,html,css,png,jpg,gif}',
+      paths.src + '/**/*.{js,html,css,png,jpg,gif}'
+    ],
+    importScripts: [
+      paths.src + '/js/sw-toolbox.js',
+      paths.src + '/js/toolbox-scripts.js'
+    ],
     stripPrefix: paths.src
   }, callback);
 });
